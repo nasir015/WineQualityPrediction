@@ -1,0 +1,81 @@
+[2025-01-14 16:16:12] - INFO - >>>>>>>>>>Starting Data Ingestion Stage<<<<<<<<<<<
+[2025-01-14 16:16:12] - INFO - Yaml file read successfully
+[2025-01-14 16:16:12] - INFO - Yaml file read successfully
+[2025-01-14 16:16:12] - INFO - Yaml file read successfully
+[2025-01-14 16:16:12] - INFO - Directory created at artifacts
+[2025-01-14 16:16:12] - INFO - ConfigurationManager initialized successfully.
+[2025-01-14 16:16:12] - INFO - Directory created at artifacts/data_ingestion
+[2025-01-14 16:16:12] - INFO - Data ingestion configuration fetched successfully.
+[2025-01-14 16:16:12] - INFO - DataIngestion instance created successfully.
+[2025-01-14 16:16:14] - INFO - Downloaded file from https://github.com/krishnaik06/datasets/raw/refs/heads/main/winequality-data.zip to artifacts/data_ingestion/data.zip
+[2025-01-14 16:16:14] - INFO - File downloaded successfully.
+[2025-01-14 16:16:14] - INFO - Extracted ZIP file to artifacts/data_ingestion
+[2025-01-14 16:16:14] - INFO - Zip file extracted successfully.
+[2025-01-14 16:16:14] - INFO - >>>>>>>>>>Data Ingestion Stage completed successfully.<<<<<<<<<<<
+[2025-01-15 00:05:35] - INFO - Data validation script started...
+[2025-01-15 00:05:35] - INFO - Initializing ConfigurationManager.
+[2025-01-15 00:05:35] - ERROR - An unexpected error occurred: Error occurred in python script name [C:\Users\nasir\AppData\Local\Temp\ipykernel_31124\957994603.py] line number [6] error message['ConfigurationManager' object has no attribute 'config']
+[2025-01-15 00:08:42] - INFO - Data validation script started...
+[2025-01-15 00:08:42] - INFO - Initializing ConfigurationManager.
+[2025-01-15 00:08:42] - ERROR - An unexpected error occurred: Error occurred in python script name [C:\Users\nasir\AppData\Local\Temp\ipykernel_31124\1318966036.py] line number [6] error message['ConfigurationManager' object has no attribute 'config']
+[2025-01-15 00:17:43] - INFO - Data validation script started...
+[2025-01-15 00:17:43] - INFO - Initializing ConfigurationManager.
+[2025-01-15 00:17:43] - INFO - Yaml file read successfully
+[2025-01-15 00:17:44] - INFO - Yaml file read successfully
+[2025-01-15 00:17:44] - INFO - Yaml file read successfully
+[2025-01-15 00:17:44] - INFO - Directory created at artifacts
+[2025-01-15 00:17:44] - INFO - Fetching data validation configuration.
+[2025-01-15 00:17:44] - INFO - Directory created at artifacts/data_validation
+[2025-01-15 00:17:44] - INFO - Initializing DataValidation.
+[2025-01-15 00:17:44] - INFO - Running data validation.
+[2025-01-15 00:17:44] - INFO - Data validation started...
+[2025-01-15 00:17:44] - ERROR - Data validation failed: Error occurred in python script name [C:\Users\nasir\AppData\Local\Temp\ipykernel_31124\3618654381.py] line number [52] error message[[Errno 2] No such file or directory: 'artifacts/data_ingestion/winequality-white.csv']
+[2025-01-15 00:17:44] - ERROR - An unexpected error occurred: Error occurred in python script name [C:\Users\nasir\AppData\Local\Temp\ipykernel_31124\1318966036.py] line number [18] error message[Error occurred in python script name [C:\Users\nasir\AppData\Local\Temp\ipykernel_31124\3618654381.py] line number [52] error message[[Errno 2] No such file or directory: 'artifacts/data_ingestion/winequality-white.csv']]
+[2025-01-15 00:20:50] - INFO - Data validation script started...
+[2025-01-15 00:20:50] - INFO - Initializing ConfigurationManager.
+[2025-01-15 00:20:50] - INFO - Yaml file read successfully
+[2025-01-15 00:20:50] - INFO - Yaml file read successfully
+[2025-01-15 00:20:50] - INFO - Yaml file read successfully
+[2025-01-15 00:20:50] - INFO - Directory created at artifacts
+[2025-01-15 00:20:50] - INFO - Fetching data validation configuration.
+[2025-01-15 00:20:50] - INFO - Directory created at artifacts/data_validation
+[2025-01-15 00:20:50] - INFO - Initializing DataValidation.
+[2025-01-15 00:20:50] - INFO - Running data validation.
+[2025-01-15 00:20:50] - INFO - Data validation started...
+[2025-01-15 00:20:51] - INFO - Data loaded successfully...
+[2025-01-15 00:20:51] - INFO - Schema keys loaded successfully...
+[2025-01-15 00:20:51] - INFO - Column validation started...
+[2025-01-15 00:20:51] - INFO - Data validation completed successfully...
+[2025-01-15 00:20:51] - INFO - Data validation successful.
+[2025-01-15 01:03:53] - INFO - >>>>>>>>>>Starting Data Ingestion Stage<<<<<<<<<<<
+[2025-01-15 01:03:53] - INFO - Yaml file read successfully
+[2025-01-15 01:03:53] - INFO - Yaml file read successfully
+[2025-01-15 01:03:53] - INFO - Yaml file read successfully
+[2025-01-15 01:03:53] - INFO - Directory created at artifacts
+[2025-01-15 01:03:53] - INFO - ConfigurationManager initialized successfully.
+[2025-01-15 01:03:53] - INFO - Directory created at artifacts/data_ingestion
+[2025-01-15 01:03:53] - INFO - Data ingestion configuration fetched successfully.
+[2025-01-15 01:03:53] - INFO - DataIngestion instance created successfully.
+[2025-01-15 01:03:53] - INFO - File already exists at artifacts/data_ingestion/data.zip
+[2025-01-15 01:03:53] - INFO - File downloaded successfully.
+[2025-01-15 01:03:53] - INFO - Extracted ZIP file to artifacts/data_ingestion
+[2025-01-15 01:03:53] - INFO - Zip file extracted successfully.
+[2025-01-15 01:03:53] - INFO - >>>>>>>>>>Data Ingestion Stage completed successfully.<<<<<<<<<<<
+[2025-01-15 01:03:53] - INFO - >>>>>>>>>>Starting Data Validation Stage<<<<<<<<<<<
+[2025-01-15 01:03:53] - INFO - Data validation script started....
+[2025-01-15 01:03:53] - INFO - Initializing ConfigurationManager....
+[2025-01-15 01:03:53] - INFO - Yaml file read successfully
+[2025-01-15 01:03:53] - INFO - Yaml file read successfully
+[2025-01-15 01:03:53] - INFO - Yaml file read successfully
+[2025-01-15 01:03:53] - INFO - Directory created at artifacts
+[2025-01-15 01:03:53] - INFO - Fetching data validation configuration....
+[2025-01-15 01:03:53] - INFO - Directory created at artifacts/data_validation
+[2025-01-15 01:03:53] - INFO - Initializing DataValidation....
+[2025-01-15 01:03:53] - INFO - Running data validation....
+[2025-01-15 01:03:53] - INFO - Data validation started...
+[2025-01-15 01:03:54] - INFO - Data loaded successfully...
+[2025-01-15 01:03:54] - INFO - Schema keys loaded successfully...
+[2025-01-15 01:03:54] - INFO - Column validation started...
+[2025-01-15 01:03:54] - INFO - Data validation completed successfully...
+[2025-01-15 01:03:54] - INFO - Data validation successful....
+[2025-01-15 01:03:54] - INFO - >>>>>>>>>>Data Validation Stage completed successfully.<<<<<<<<<<<

@@ -1,0 +1,75 @@
+from src.WineQualityPrediction.constants import *
+from src.WineQualityPrediction.utils.common import read_yaml, create_directories
+from src.WineQualityPrediction.utils.my_logging import logger
+from src.WineQualityPrediction.utils.my_exception import CustomException
+
+from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig, DataValidationConfig
+
+
+class ConfigurationManager:
+    """
+    Manages the configuration for the project by reading YAML files
+    and providing structured configurations.
+
+    Attributes:
+        config (ConfigBox): Parsed configuration file.
+        params (ConfigBox): Parsed parameters file.
+        schema (ConfigBox): Parsed schema file.
+    """
+
+    def __init__(self,
+                 config_filepath: Path = CONFIG_FILE_PATH,
+                 params_filepath: Path = PARAMS_FILE_PATH,
+                 schema_filepath: Path = SCHEMA_FILE_PATH):
+        """
+        Initializes the ConfigurationManager by loading YAML files and creating directories.
+
+        Args:
+            config_filepath (Path): Path to the main configuration file.
+            params_filepath (Path): Path to the parameters configuration file.
+            schema_filepath (Path): Path to the schema configuration file.
+        """
+        self.config = read_yaml(config_filepath)
+        self.params = read_yaml(params_filepath)
+        self.schema = read_yaml(schema_filepath)
+
+        # Ensure the artifacts root directory exists
+        create_directories([self.config.artifacts_root])
+
+    def get_data_ingestion_config(self) -> DataIngestionConfig:
+        """
+        Provides the configuration for the data ingestion component.
+
+        Returns:
+            DataIngestionConfig: Configuration object for data ingestion.
+        """
+        config = self.config.data_ingestion
+        create_directories([config.root_dir])
+
+        data_ingestion_config = DataIngestionConfig(
+            root_dir=config.root_dir,
+            source_URL=config.source_URL,
+            local_data_file=config.local_data_file,
+            unzip_dir=config.unzip_dir
+        )
+        return data_ingestion_config
+
+    def get_data_validation_config(self) -> DataValidationConfig:
+        """
+        Provides the configuration for the data ingestion component.
+
+        Returns:
+            DataIngestionConfig: Configuration object for data ingestion.
+        """
+        config = self.config.data_validation
+        schema = self.schema.COLUMNS
+
+        create_directories([config.root_dir])
+
+        data_validation_config = DataValidationConfig(
+            root_dir=config.root_dir,
+            data_file =config.data_file,
+            status_file=config.STATUS_FILE,
+            all_schema=schema
+        )
+        return data_validation_config    
