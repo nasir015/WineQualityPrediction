@@ -11,6 +11,7 @@ from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
+from typing import Dict
 from box.exceptions import BoxValueError
 
 # create a file utils.log in LogFile folder
@@ -66,8 +67,8 @@ def create_directories(path_to_directories: list, verbose=True):
         
 
 
-@ensure_annotations
-def save_json(path: Path, data: dict) -> None:
+
+def save_json(path: Path, data: Dict) -> None:
     """
     Save JSON data to a file.
 
@@ -78,22 +79,14 @@ def save_json(path: Path, data: dict) -> None:
     Raises:
         ValueError: If the data cannot be serialized to JSON.
         IOError: If the file cannot be written.
-
-    Example:
-        >>> from pathlib import Path
-        >>> data = {"key": "value", "nested": {"number": 42}}
-        >>> save_json(Path("output.json"), data)
     """
     try:
-
         with open(path, "w") as f:
             json.dump(data, f, indent=4)
-
         logger(log_path, logging.INFO, f"JSON data saved to {path}")
     except TypeError as e:
         logger(log_path, logging.ERROR, f"Data provided cannot be serialized to JSON: {e}")
         raise CustomException(e, sys)
-    
     except IOError as e:
         logger(log_path, logging.ERROR, f"Error writing JSON data to {path}: {e}")
         raise CustomException(e, sys)

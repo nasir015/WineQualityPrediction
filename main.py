@@ -8,6 +8,7 @@ from src.WineQualityPrediction.pipeline.DataIngestionPipeline import DataIngesti
 from src.WineQualityPrediction.pipeline.DataValidationPipeline import DataValidationTrainingPipeline
 from src.WineQualityPrediction.pipeline.DataTransformationPipeline import DataTransformationTrainingPipeline
 from src.WineQualityPrediction.pipeline.ModelTrainingPipeline import ModelTrainingPipeline
+from src.WineQualityPrediction.pipeline.ModelEvaluationPipeline import ModelEvaluationPipeline
 
 log_path = 'log\log_file.log'
 
@@ -57,3 +58,13 @@ except CustomException as ce:
     logger(log_path, logging.ERROR, f"CustomException occurred: {CustomException(ce, sys)}")
     raise CustomException(ce, sys)
 
+Stage_name = "Model Evaluation Stage"
+
+try:
+    logger(log_path, logging.INFO, f">>>>>>>>>>Starting {Stage_name}<<<<<<<<<<<")
+    pipeline = ModelEvaluationPipeline()
+    pipeline.initiate_model_evaluation()
+    logger(log_path, logging.INFO, f">>>>>>>>>>{Stage_name} completed successfully.<<<<<<<<<<<")
+except CustomException as ce:
+    logger(log_path, logging.ERROR, f"CustomException occurred: {CustomException(ce, sys)}")
+    raise CustomException(ce, sys)
