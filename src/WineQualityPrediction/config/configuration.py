@@ -3,7 +3,7 @@ from src.WineQualityPrediction.utils.common import read_yaml, create_directories
 from src.WineQualityPrediction.utils.my_logging import logger
 from src.WineQualityPrediction.utils.my_exception import CustomException
 
-from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig , ModelTrainerConfig
 
 
 class ConfigurationManager:
@@ -72,4 +72,44 @@ class ConfigurationManager:
             status_file=config.STATUS_FILE,
             all_schema=schema
         )
-        return data_validation_config    
+        return data_validation_config
+    
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        """
+        Provides the configuration for the data transformation component.
+
+        Returns:
+            DataTransformationConfig: Configuration object for data transformation.
+        """
+        config = self.config.data_transformation
+
+        create_directories([config.root_dir])
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path
+        )
+        return data_transformation_config
+    
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        """
+        Provides the configuration for the model trainer.
+
+        Returns:
+            ModelTrainerConfig: Configuration for the model trainer.
+        """
+        config = self.config.model_trainer
+        param = self.params.ElasticNet
+        schema = self.schema.TARGET_COLUMN
+        create_directories([config.root_dir])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            alpha=param.alpha,
+            l1_ratio=param.l1_ratio,
+            target_column=schema.name
+        )
+        return model_trainer_config    
