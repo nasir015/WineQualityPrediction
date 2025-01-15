@@ -3,7 +3,7 @@ from src.WineQualityPrediction.utils.common import read_yaml, create_directories
 from src.WineQualityPrediction.utils.my_logging import logger
 from src.WineQualityPrediction.utils.my_exception import CustomException
 
-from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig , ModelTrainerConfig
+from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig , ModelTrainerConfig, ModelEvaluationConfig
 
 
 class ConfigurationManager:
