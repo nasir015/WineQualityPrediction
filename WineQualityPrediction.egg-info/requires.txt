@@ -1,4 +1,4 @@
-pandas 
+pandas
 mlflow
 notebook
 numpy
@@ -13,5 +13,3 @@ types-PyYAML
 Flask
 Flask-Cors
 dagshub
-
--e .

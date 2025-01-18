@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+WineQualityPrediction.egg-info/PKG-INFO
+WineQualityPrediction.egg-info/SOURCES.txt
+WineQualityPrediction.egg-info/dependency_links.txt
+WineQualityPrediction.egg-info/requires.txt
+WineQualityPrediction.egg-info/top_level.txt

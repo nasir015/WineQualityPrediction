@@ -1,0 +1,24 @@
+Metadata-Version: 2.2
+Name: WineQualityPrediction
+Version: 0.1
+Author: Md Nasir Uddin
+Author-email: nasir.uddin.6314@gmail.com
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: mlflow
+Requires-Dist: notebook
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: python-box
+Requires-Dist: pyYAML
+Requires-Dist: tqdm
+Requires-Dist: ensure
+Requires-Dist: joblib
+Requires-Dist: types-PyYAML
+Requires-Dist: Flask
+Requires-Dist: Flask-Cors
+Requires-Dist: dagshub
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
