@@ -66,7 +66,7 @@ class ModelEvaluation:
         This method sets up MLflow tracking and authenticates using environment variables.
         """
         # Set MLflow tracking environment variables
-        os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/nasir.uddin.6314/WineQualityPrediction.mlflow"
+        os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/nasir.uddin.6314/WineQualityPrediction_with_Docker.mlflow"
         os.environ["MLFLOW_TRACKING_USERNAME"] = "nasir.uddin.6314"
         os.environ["MLFLOW_TRACKING_PASSWORD"] = "026054fecb7c525dea65edc373c6935c9a1332fc"
 
