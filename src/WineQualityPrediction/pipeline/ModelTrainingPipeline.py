@@ -32,16 +32,25 @@ class ModelTrainingPipeline:
 
             # Step 4: Running Model Training
             logger(log_path, logging.INFO, "Running Model Training....")
-            Train_status = model_trainer.train()
+            try:
+                model_trainer.objective()
+            except Exception as ex:
+                logger(log_path, logging.ERROR, f"An unexpected error occurred: {CustomException(ex,sys)}")
+                raise CustomException(ex,sys)
+            
+            logger(log_path,logging.INFO, 'Best model training strated....')
+            try:
+                model_trainer.train_best_model()
+            except Exception as ex:
+                logger(log_path, logging.ERROR, f"An unexpected error occurred: {CustomException(ex,sys)}")
+                raise CustomException(ex,sys)
 
-            if Train_status:
-                logger(log_path, logging.INFO, "Model Training successful....")
-            else:
-                logger(log_path, logging.ERROR, "Model Training failed.....")
 
-        except CustomException as custom_ex:
-            logger(log_path, logging.ERROR, f"An unexpected error occurred: {CustomException(custom_ex,sys)}")
-            raise CustomException(custom_ex,sys)  # Optionally, re-raise the exception for external handling
+            
         except Exception as ex:
             logger(log_path, logging.ERROR, f"An unexpected error occurred: {CustomException(ex,sys)}")
             raise CustomException(ex,sys)  # Optionally, re-raise the exception for external handling
+
+if __name__ == "__main__":
+    model_training_pipeline = ModelTrainingPipeline()
+    model_training_pipeline.initiate_model_training()

@@ -99,7 +99,6 @@ class ConfigurationManager:
             ModelTrainerConfig: Configuration for the model trainer.
         """
         config = self.config.model_trainer
-        param = self.params.ElasticNet
         schema = self.schema.TARGET_COLUMN
         create_directories([config.root_dir])
 
@@ -108,11 +107,9 @@ class ConfigurationManager:
             train_data_path=config.train_data_path,
             test_data_path=config.test_data_path,
             model_name=config.model_name,
-            alpha=param.alpha,
-            l1_ratio=param.l1_ratio,
             target_column=schema.name
         )
-        return model_trainer_config    
+        return model_trainer_config   
     
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         config=self.config.model_evaluation
