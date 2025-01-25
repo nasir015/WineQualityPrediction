@@ -1,5 +1,6 @@
 import pickle
 from pathlib import Path
+import pandas as pd
 
 
 class PredictionPipeline:
@@ -10,3 +11,4 @@ class PredictionPipeline:
         prediction=self.model.predict(data)
 
         return prediction
+
