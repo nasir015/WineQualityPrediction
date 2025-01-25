@@ -11,40 +11,12 @@ This project is a web-based application for predicting the likelihood of diabete
 ## Dataset
 The Indian Diabetes Prediction Dataset is used in this project. It contains health-related parameters like glucose levels, BMI, and age, which are key factors in predicting diabetes.
 
-## Project Structure
-```
-├── .git
-├── .github
-├── artifacts
-│   └── model_evaluation
-│       └── metrics.json         # Contains classification report of the model
-├── config
-├── log
-├── research
-├── src
-├── templates                   # HTML templates for the Flask app
-├── app.py                      # Main Flask application
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── Dockerfile                  # For containerizing the application
-├── LICENSE
-├── main.py                     # Entry point for training or running the model
-├── params.yaml                 # Parameters for the machine learning pipeline
-├── README.md                   # Documentation for the project
-├── requirements.txt            # Dependencies required for the project
-├── schema.yaml                 # Schema for validating input data
-├── SECURITY.md
-├── setup.py
-├── template.py
-└── WineQualityPrediction.egg-info
-```
-
 ## Installation
 To set up the project locally, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/indian-diabetes-prediction.git
+   git clone [https://github.com/your-username/indian-diabetes-prediction.git](https://github.com/nasir015/WineQualityPrediction_with_Docker.git)
    cd indian-diabetes-prediction
    ```
 
@@ -92,5 +64,6 @@ For any security concerns, please refer to the [SECURITY.md](SECURITY.md) file.
 Special thanks to the contributors and open-source libraries used in this project.
 
 ## Contact
-For any questions or feedback, please open an issue on the GitHub repository.
+Email: nasir.uddin.6314@gmail.com
+WhatsApp: +8801793502127
 
