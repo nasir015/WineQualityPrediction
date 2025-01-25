@@ -22,9 +22,14 @@ class DataTransformationTrainingPipeline:
             logger(log_path, logging.INFO, "ConfigurationManager initialized successfully.")
             
             # Get data transformation configuration
-            config.get_data_transformation_config()
+            data_transformation = config.get_data_transformation_config()
             logger(log_path, logging.INFO, "Data transformation configuration fetched successfully.")
 
+            transformation = DataTransformation(data_transformation)
+            logger(log_path, logging.INFO, "DataTransformation class initialized successfully.")
+
+            transformation.train_test_spliting()
+            logger(log_path, logging.INFO, "Data split successfully.")
         except Exception as e:
             logger(log_path, logging.ERROR, f"An unexpected error occurred: {CustomException(e, sys)}")
             raise CustomException(e, sys)

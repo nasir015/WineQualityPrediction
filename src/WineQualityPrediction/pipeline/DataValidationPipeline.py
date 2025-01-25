@@ -48,12 +48,3 @@ class DataValidationTrainingPipeline:
             raise CustomException(ex,sys)  # Optionally, re-raise the exception for external handling
 
 
-if __name__ == "__main__":
-    try:
-        logger(log_path, logging.INFO, f">>>>>>>>>>Starting {Stage_name}<<<<<<<<<<<")
-        pipeline = DataValidationTrainingPipeline()
-        pipeline.initiate_data_validation()
-        logger(log_path, logging.INFO, f">>>>>>>>>>{Stage_name} completed successfully.<<<<<<<<<<<")
-    except CustomException as ce:
-        logger(log_path, logging.ERROR, f"CustomException occurred: {CustomException(ce, sys)}")
-        raise CustomException(ce, sys)

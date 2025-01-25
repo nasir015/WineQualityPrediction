@@ -136,80 +136,29 @@ def load_json(path: Path) -> ConfigBox:
         logger(log_path, logging.ERROR, f"Error loading JSON file: {e}")
         raise CustomException(e, sys)
     
-
-@ensure_annotations
-def save_bin(data: Any, path: Path) -> None:
+import pickle
+def save_model(model, model_directory, filename):
     """
-    Save data to a binary file using Joblib.
-
-    Args:
-        data (Any): The data to be serialized and saved as a binary file.
-        path (Path): The file path where the binary file will be saved.
-
-    Raises:
-        ValueError: If the data is None or invalid.
-        IOError: If the file cannot be written due to permissions or other issues.
-
-    Example:
-        >>> from pathlib import Path
-        >>> from sklearn.linear_model import LogisticRegression
-        >>> model = LogisticRegression()
-        >>> save_bin(model, Path("model.pkl"))
+    Saves the given model to the specified directory and filename.
     """
-    try:
-        if data is None:
-            raise ValueError("The data to be saved cannot be None.")
+    # Ensure the directory exists
+    os.makedirs(model_directory, exist_ok=True)
+    
+    # Define the model's path
+    model_path = os.path.join(model_directory, filename)
+    
+    # Save the model
+    with open(model_path, 'wb') as file:
+        pickle.dump(model, file)
+    return "success"
 
-        joblib.dump(value=data, filename=path)
-        logger(log_path, logging.INFO, f"Binary file saved at {path}")
-    except ValueError as e:
-        logger(log_path, logging.ERROR, f"Invalid data provided for saving binary file: {e}")
-        raise CustomException(e, sys)
-    except IOError as e:
-        logger(log_path, logging.ERROR, f"Error writing binary file to {path}: {e}")
-        raise CustomException(e, sys)
-    except Exception as e:
-        logger(log_path, logging.ERROR, f"Error saving binary file: {e}")
-        raise CustomException(e, sys)
-
-
-@ensure_annotations
-def load_bin(path: Path) -> Any:
+def load_model(model_directory, filename):
     """
-    Load binary data from a file using Joblib.
-
-    Args:
-        path (Path): Path to the binary file.
-
-    Raises:
-        FileNotFoundError: If the file does not exist.
-        IOError: If the file cannot be read.
-        ValueError: If the file contains invalid data.
-
-    Returns:
-        Any: The object stored in the file.
-
-    Example:
-        >>> from pathlib import Path
-        >>> model_path = Path("model.pkl")
-        >>> model = load_bin(model_path)
+    Loads the model from the specified directory and filename.
     """
-    try:
-        if not path.is_file():
-            raise FileNotFoundError(f"Binary file not found at: {path}")
-        
-        data = joblib.load(path)
-        logger(log_path, logging.INFO, f"Binary file loaded successfully from: {path}")
-        return data
-    except FileNotFoundError as e:
-        logger(log_path, logging.ERROR, f"Error loading binary file: {e}")
-        raise CustomException(e, sys)
-    except IOError as e:
-        logger(log_path, logging.ERROR, f"Error reading binary file at {path}: {e}")
-        raise CustomException(e, sys)
-    except ValueError as e:
-        logger(log_path, logging.ERROR, f"Invalid data in binary file: {e}")
-        raise CustomException(e, sys)
-    except Exception as e:
-        logger(log_path, logging.ERROR, f"An unexpected error occurred while loading binary file: {e}")
-        raise CustomException(e, sys)
+    # Define the model's path
+    model_path = os.path.join(model_directory, filename)
+    
+    # Load the model
+    with open(model_path, 'rb') as file:
+        return pickle.load(file)

@@ -19,12 +19,13 @@ class DataValidationConfig:
 class DataTransformationConfig:
     root_dir: Path
     data_path: Path
+    target_column: str
 
 @dataclass
 class ModelTrainerConfig:
     root_dir: Path
-    train_data_path: Path
-    test_data_path: Path
+    y_data_path: Path
+    X_data_path: Path
     model_name: str
     target_column: str
 
@@ -32,9 +33,10 @@ class ModelTrainerConfig:
 @dataclass
 class ModelEvaluationConfig:
     root_dir: Path
-    test_data_path: Path
+    X_test: Path
+    y_test: Path
     model_path: Path
-    all_params: dict
+    model_name: str
     metric_file_name: str
     target_column: str
     mlflow_uri: str

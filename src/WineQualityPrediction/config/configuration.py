@@ -87,7 +87,8 @@ class ConfigurationManager:
 
         data_transformation_config = DataTransformationConfig(
             root_dir=config.root_dir,
-            data_path=config.data_path
+            data_path=config.data_path,
+            target_column=self.schema.TARGET_COLUMN.name
         )
         return data_transformation_config
     
@@ -104,8 +105,8 @@ class ConfigurationManager:
 
         model_trainer_config = ModelTrainerConfig(
             root_dir=config.root_dir,
-            train_data_path=config.train_data_path,
-            test_data_path=config.test_data_path,
+            X_data_path=config.X_data_path,
+            y_data_path=config.y_data_path,
             model_name=config.model_name,
             target_column=schema.name
         )
@@ -120,9 +121,10 @@ class ConfigurationManager:
 
         model_evaluation_config=ModelEvaluationConfig(
             root_dir=config.root_dir,
-            test_data_path=config.test_data_path,
+            X_test=config.X_test,
+            y_test=config.y_test,
             model_path = config.model_path,
-            all_params=params,
+            model_name = config.model_name,
             metric_file_name = config.metric_file_name,
             target_column = schema.name,
             mlflow_uri="https://dagshub.com/nasir.uddin.6314/WineQualityPrediction.mlflow"

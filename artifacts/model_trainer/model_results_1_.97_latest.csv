@@ -1,0 +1,2 @@
+Model Name,Model Parameters
+SVM,"{'svm_kernel': 'rbf', 'svmfloat_gamma': 0.15933804782179095, 'svm_C': 442.60324418470503}"

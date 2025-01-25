@@ -44,12 +44,3 @@ class DataIngestionTrainingPipeline:
             raise CustomException(e, sys)
 
 
-if __name__ == "__main__":
-    try:
-        logger(log_path, logging.INFO, f">>>>>>>>>>Starting {Stage_name}<<<<<<<<<<<")
-        pipeline = DataIngestionTrainingPipeline()
-        pipeline.initiate_data_ingestion()
-        logger(log_path, logging.INFO, f">>>>>>>>>>{Stage_name} completed successfully.<<<<<<<<<<<")
-    except CustomException as ce:
-        logger(log_path, logging.ERROR, f"CustomException occurred: {CustomException(ce, sys)}")
-        raise CustomException(ce, sys)

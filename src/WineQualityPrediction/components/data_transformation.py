@@ -6,6 +6,7 @@ from src.WineQualityPrediction.utils.my_logging import logger
 from src.WineQualityPrediction.utils.my_exception import CustomException
 from sklearn.model_selection import train_test_split
 import pandas as pd
+from imblearn.combine import SMOTEENN
 from src.WineQualityPrediction.entity.config_entity import DataTransformationConfig
 
 log_path = "log\log_file.log"
@@ -40,19 +41,35 @@ class DataTransformation:
         
         Logs the shape of the train and test datasets and prints it to the console.
         """
-        data = pd.read_csv(self.config.data_path)
+        self.data = pd.read_csv(self.config.data_path)
         logger(log_path,logging.INFO,"Data Loaded Successfully....")
 
         # Split the data into training and test sets. (0.75, 0.25) split.
-        train, test = train_test_split(data)
+        # Remap y labels to continuous range starting from 0
+        self.data[self.config.target_column] = self.data[self.config.target_column].map({3: 0, 4: 1, 5: 2, 6: 3, 7: 4, 8: 5})
+        logger(log_path,logging.INFO,"Target column is remaped....")
+        self.bX = self.data.drop(self.config.target_column, axis=1)
+        self.by = self.data[self.config.target_column]
+        logger(log_path,logging.INFO, "X and Y are separated....")
+        smoteenn = SMOTEENN(random_state=42)
+        X_resampled, y_resampled = smoteenn.fit_resample(self.bX, self.by)
+        logger(log_path,logging.INFO,"balanced the data....")
+
+        X_resampled.to_csv(os.path.join(self.config.root_dir, "X.csv"),index = False)
+        y_resampled.to_csv(os.path.join(self.config.root_dir, "y.csv"),index = False)
+        logger(log_path,logging.INFO,"X and Y saved successfully....")
+        X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size=0.25, random_state=42)
         logger(log_path,logging.INFO,"Data Split Successfully....")
+        X_train.to_csv(os.path.join(self.config.root_dir, "X_train.csv"),index = False)
+        X_test.to_csv(os.path.join(self.config.root_dir, "X_test.csv"),index = False)
+        y_train.to_csv(os.path.join(self.config.root_dir, "y_train.csv"),index = False)
+        y_test.to_csv(os.path.join(self.config.root_dir, "y_test.csv"),index = False)
 
-        train.to_csv(os.path.join(self.config.root_dir, "train.csv"),index = False)
-        test.to_csv(os.path.join(self.config.root_dir, "test.csv"),index = False)
-        logger(log_path,logging.INFO,"Data Saved Successfully....")
+        logger(log_path,logging.INFO,"Spliting Data Saved Successfully....")
         
-        logger(log_path,logging.INFO,f'test shape is {test.shape}')
-        logger(log_path,logging.INFO,f'train shape is {train.shape}')
+        logger(log_path,logging.INFO,f'test shape is {y_resampled.shape}')
+        logger(log_path,logging.INFO,f'train shape is {X_resampled.shape}')
 
-        print(train.shape)
-        print(test.shape)
+        print(X_resampled.shape)
+        print(y_resampled.shape)
+

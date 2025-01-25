@@ -32,12 +32,8 @@ class ModelEvaluationPipelines:
 
             # Step 4: Running Model Evaluation
             logger(log_path, logging.INFO, "Running Model Evaluation....")
-            Eval_status = model_evaluation.log_into_mlflow()
+            model_evaluation.log_into_mlflow()
 
-            if Eval_status:
-                logger(log_path, logging.INFO, "Model Evaluation successful....")
-            else:
-                logger(log_path, logging.ERROR, "Model Evaluation failed.....")
 
         except CustomException as custom_ex:
             logger(log_path, logging.ERROR, f"An unexpected error occurred: {CustomException(custom_ex, sys)}")
@@ -45,3 +41,4 @@ class ModelEvaluationPipelines:
         except Exception as ex:
             logger(log_path, logging.ERROR, f"An unexpected error occurred: {CustomException(ex, sys)}")
             raise CustomException(ex, sys)  # Optionally, re-raise the exception for external handling
+
