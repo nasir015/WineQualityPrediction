@@ -16,8 +16,8 @@ To set up the project locally, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/indian-diabetes-prediction.git](https://github.com/nasir015/WineQualityPrediction_with_Docker.git)
-   cd indian-diabetes-prediction
+   git clone https://github.com/nasir015/WineQualityPrediction.git
+   cd WineQualityPrediction
    ```
 
 2. **Create and activate a virtual environment:**
