@@ -55,8 +55,8 @@ To set up the project locally, follow these steps:
            5       0.96      1.00      0.98       120
 
     accuracy                           0.97       608
-   macro avg       0.94      0.92      0.93       608
-weighted avg       0.97      0.97      0.97       608
+    macro avg      0.94      0.92      0.93       608
+    weighted avg   0.97      0.97      0.97       608
 
 
 ## Contributing
