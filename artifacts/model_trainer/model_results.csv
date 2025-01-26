@@ -1,2 +1,2 @@
 Model Name,Model Parameters
-XGBoost,"{'xgb_n_estimators': 241, 'xgb_max_depth': 7, 'xgb_min_child_weight': 2, 'xgb_subsample': 0.6496933537972834, 'xgb_colsample_bytree': 0.9391130076226981, 'xgb_learning_rate': 0.10371314353324362, 'xgb_gamma': 0.2704352315215459}"
+SVM,"{'svm_kernel': 'rbf', 'svmfloat_gamma': 0.24474461387796817, 'svm_C': 436.4833183440684}"

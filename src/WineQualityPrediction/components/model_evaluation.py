@@ -78,6 +78,9 @@ class ModelEvaluation:
             
             mlflow.log_metrics({"accuracy": accuracy})
             report = classification_report(test_y, predicted_qualities)
+            #save the classification report to a file
+            with open("artifacts\model_evaluation\classification_report.txt", "w") as file:
+                file.write(report)
 
             # Log the classification report
             mlflow.log_text(report,artifact_file="classification_report.txt")
