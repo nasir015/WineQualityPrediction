@@ -45,11 +45,19 @@ To set up the project locally, follow these steps:
 3. View the prediction result and confidence level.
 
 ## Model Performance
-The classification report for the trained model can be found in `artifacts/model_evaluation/metrics.json`. It includes metrics such as:
-- Accuracy
-- Precision
-- Recall
-- F1-score
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00       163
+           1       0.95      1.00      0.97       126
+           2       0.93      0.80      0.86        46
+           3       0.82      0.75      0.78        24
+           4       0.99      0.96      0.98       129
+           5       0.96      1.00      0.98       120
+
+    accuracy                           0.97       608
+   macro avg       0.94      0.92      0.93       608
+weighted avg       0.97      0.97      0.97       608
+
 
 ## Contributing
 We welcome contributions! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
