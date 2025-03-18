@@ -1,4 +1,4 @@
-# Indian Diabetes Prediction Project
+# Wine Quality Prediction Project
 
 ## Overview
 This project is a web-based application for predicting the likelihood of diabetes in individuals using the Indian Diabetes Prediction Dataset. It leverages a machine learning model and is built with Flask for the backend. The application allows users to input health-related parameters and receive predictions on diabetes risk.
